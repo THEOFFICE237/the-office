@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>THE OFFICE</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
 
   <!-- Style -->
   <style>
@@ -17,16 +17,32 @@
       background-color: #f4f4f4;
       color: #333;
     }
-    header {
-      background-color: #1a1a1a;
-      color: white;
-      padding: 20px;
+    .banner {
+      position: relative;
       text-align: center;
+      overflow: hidden;
     }
-    header h1 {
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .slogan {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.8em;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 10px;
+      animation: fadeIn 2s ease-in-out;
       font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      font-size: 2.5em;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
     main {
       padding: 30px;
@@ -47,15 +63,15 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>THE OFFICE</h1>
-    <p>Votre solution numérique tout-en-un</p>
+  <header class="banner">
+    <img src="https://images.unsplash.com/photo-1581091012184-7a6b3d61f86d?auto=format&fit=crop&w=1280&q=80" alt="Bannière THE OFFICE" />
+    <div class="slogan">L’encre pour vos idées, les pixels pour vos projets.</div>
   </header>
 
   <main>
     <h2>Nos services</h2>
     <p>
-      Nous proposons des services d’impression, d’informatique (retouche d’image, carte de visite, etc.), 
+      Nous proposons des services d’impression, d’infographie (retouche d’image, carte de visite, etc.), 
       des services cyber (inscription en ligne, loterie américaine, etc.), et la vente de consommables informatiques.
     </p>
 
