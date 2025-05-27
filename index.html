@@ -6,7 +6,7 @@
   <title>THE OFFICE</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@600&family=Great+Vibes&display=swap" rel="stylesheet" />
 
   <!-- Style -->
   <style>
@@ -21,10 +21,12 @@
       position: relative;
       text-align: center;
       overflow: hidden;
+      height: 450px; /* hauteur augmentée */
     }
     .banner img {
       width: 100%;
-      height: auto;
+      height: 450px;
+      object-fit: cover;
       display: block;
     }
     .slogan {
@@ -32,17 +34,33 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 1.8em;
+      font-size: 2.4em;
       color: white;
       background: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 10px;
+      padding: 15px 30px;
+      border-radius: 12px;
       animation: fadeIn 2s ease-in-out;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Great Vibes', cursive;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translate(-50%, -60%); }
       to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      font-size: 2.5em;
     }
     main {
       padding: 30px;
@@ -63,10 +81,15 @@
   </style>
 </head>
 <body>
-  <header class="banner">
-    <img src="https://images.unsplash.com/photo-1581091012184-7a6b3d61f86d?auto=format&fit=crop&w=1280&q=80" alt="Bannière THE OFFICE" />
-    <div class="slogan">L’encre pour vos idées, les pixels pour vos projets.</div>
+  <header>
+    <h1>THE OFFICE</h1>
+    <p>L’encre pour vos idées, les pixels pour vos projets.</p>
   </header>
+
+  <section class="banner">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Printing_press_1851_-_Gutenberg_Bible_-_Bodleian_Libraries%2C_University_of_Oxford_-_DSC07227.JPG" alt="Imprimerie" />
+    <div class="slogan">L’encre pour vos idées, les pixels pour vos projets.</div>
+  </section>
 
   <main>
     <h2>Nos services</h2>
