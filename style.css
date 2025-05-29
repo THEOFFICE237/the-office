@@ -8,13 +8,30 @@ body {
 header {
   background-color: #0a3d62;
   color: white;
-  padding: 40px 20px;
-  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+.menu-btn {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none; /* À activer si menu latéral */
 }
 
 header h1 {
-  margin: 0;
+  margin: 0 auto;
   font-size: 2em;
+  text-align: center;
+  flex-grow: 1;
 }
 
 main {
@@ -28,6 +45,50 @@ section {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   max-width: 600px;
   margin: auto;
+  text-align: center;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-buttons a {
+  text-decoration: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.contact-buttons a i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* WhatsApp */
+.contact-buttons .whatsapp {
+  background-color: #25D366;
+}
+
+.contact-buttons .whatsapp:hover {
+  background-color: #1ebf5b;
+}
+
+/* Facebook */
+.contact-buttons .facebook {
+  background-color: #1877f2;
+}
+
+.contact-buttons .facebook:hover {
+  background-color: #145dbf;
 }
 
 footer {
