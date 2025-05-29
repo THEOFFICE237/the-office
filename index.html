@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>THE OFFICE</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (pour les icônes) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -16,81 +19,70 @@
       color: #333;
     }
 
-    /* Header & Banner */
     header {
       background-color: #1a1a1a;
       color: white;
-      padding: 40px 20px;
-      text-align: center;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: relative;
     }
 
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
+    .logo {
+      height: 50px;
+    }
+
+    .menu-btn {
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 250px;
+      height: 100%;
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 0;
+      color: white;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      border-bottom: 1px solid #444;
     }
 
     .slogan {
       font-family: 'Great Vibes', cursive;
       font-size: 1.8em;
-      opacity: 0;
-      animation: fadeIn 3s ease-in-out forwards;
+      text-align: center;
+      margin: 40px 20px;
+      color: #1a1a1a;
+      animation: fadeIn 3s ease-in-out infinite alternate;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    /* Hamburger Button */
-    .menu-button {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    .menu-button span {
-      display: block;
-      width: 30px;
-      height: 4px;
-      background-color: white;
-      margin: 6px 0;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333;
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
-      z-index: 1000;
-    }
-
-    .sidebar a {
-      padding: 15px 25px;
-      text-decoration: none;
-      font-size: 1.2em;
-      color: white;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      background-color: #555;
+      from { opacity: 0.2; }
+      to { opacity: 1; }
     }
 
     main {
-      padding: 40px 20px;
+      padding: 30px;
       max-width: 900px;
       margin: auto;
     }
@@ -100,108 +92,111 @@
       margin-top: 40px;
     }
 
-    /* Footer */
     footer {
-      background-color: #005fa3; /* bleu confiant */
+      background-color: #0074cc; /* bleu confiant */
       color: white;
       text-align: center;
       padding: 30px 10px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      font-size: 0.9em;
+      font-size: 14px;
     }
 
-    footer div {
-      flex: 1 1 200px;
-      margin: 10px;
-      border-right: 1px solid white;
-      padding: 10px;
+    footer .footer-section {
+      display: inline-block;
+      margin: 0 15px;
+      vertical-align: top;
     }
 
-    footer div:last-child {
-      border-right: none;
-    }
-
-    footer h4 {
+    footer .footer-section h4 {
       text-decoration: underline;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
+      font-size: 15px;
     }
 
-    footer p {
-      margin: 5px 0;
-      font-size: 0.85em;
+    footer .footer-section p {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    footer .divider {
+      display: inline-block;
+      height: 50px;
+      width: 1px;
+      background: white;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+
+    footer .copyright {
+      margin-top: 15px;
+      font-size: 12px;
     }
   </style>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+  </script>
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <div id="sidebar" class="sidebar">
-    <a href="#">Accueil</a>
-    <a href="#">À propos de nous</a>
-    <a href="#">Pourquoi nous choisir</a>
-    <a href="#">Catalogue / Portfolio</a>
-    <a href="contact.html">Contacts</a>
-    <a href="#">Nouveautés</a>
-  </div>
-
-  <!-- Header -->
   <header>
-    <button class="menu-button" onclick="toggleSidebar()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <h1>THE OFFICE</h1>
-    <p class="slogan">De l’encre aux pixels, nous façonnons vos idées.</p>
+    <img src="logo-the-office.png" alt="Logo The Office" class="logo" />
+    <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>
   </header>
 
-  <!-- Main Content -->
+  <!-- Menu latéral -->
+  <nav id="sidebar" class="sidebar">
+    <a href="index.html">Accueil</a>
+    <a href="#a-propos">À propos de nous</a>
+    <a href="#pourquoi-nous">Pourquoi nous choisir</a>
+    <a href="#catalogue">Catalogue / Portfolio</a>
+    <a href="contact.html">Contacts</a>
+    <a href="#nouveautes">Nouveautés</a>
+  </nav>
+
+  <!-- Slogan -->
+  <div class="slogan">De l’encre aux pixels, nous façonnons vos idées.</div>
+
   <main>
-    <h2>Nos services</h2>
+    <h2 id="a-propos">Nos services</h2>
     <p>
       Nous proposons des services d’impression, d’infographie (retouche d’image, carte de visite, etc.), 
       des services cyber (inscription en ligne, loterie américaine, etc.), et la vente de consommables informatiques.
     </p>
 
-    <h2>Pourquoi nous choisir ?</h2>
+    <h2 id="pourquoi-nous">Pourquoi nous choisir ?</h2>
     <p>
       Fiabilité, rapidité, qualité. THE OFFICE vous accompagne dans tous vos besoins numériques.
     </p>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div>
+    <div class="footer-section">
       <h4>Localisation</h4>
       <p>Douala_PK17 face Université</p>
       <p>1ère porte à gauche du RDC bâtiment R+4</p>
     </div>
-    <div>
+
+    <div class="divider"></div>
+
+    <div class="footer-section">
+      <h4>Horaires</h4>
+      <p>Lun - Ven : 08h - 18h</p>
+      <p>Samedi : 08h - 18h</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="footer-section">
       <h4>Contact</h4>
       <p>(+237) 697 865 206</p>
       <p>(+237) 653 318 226</p>
     </div>
-    <div>
-      <h4>Horaires</h4>
-      <p>Lundi – Vendredi : 08h – 18h</p>
-      <p>Samedi : 08h – 18h</p>
-    </div>
-    <div>
-      <h4>Mentions</h4>
-      <p>&copy; 2025 THE OFFICE</p>
-      <p>Tous droits réservés.</p>
+
+    <div class="copyright">
+      &copy; 2025 THE OFFICE — Tous droits réservés.
     </div>
   </footer>
-
-  <!-- JS for Sidebar -->
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
-    }
-  </script>
-
 </body>
 </html>
