@@ -6,13 +6,13 @@
   <title>THE OFFICE</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@600&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
+  <!-- Style -->
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Lora', serif;
+      font-family: 'Playfair Display', serif;
       background-color: #f4f4f4;
       color: #333;
     }
@@ -20,74 +20,80 @@
     header {
       background-color: #1a1a1a;
       color: white;
-      padding: 30px 20px;
+      padding: 60px 20px;
       text-align: center;
       position: relative;
     }
 
     header h1 {
       font-family: 'Montserrat', sans-serif;
+      font-size: 3em;
       margin: 0;
-      font-size: 2.8em;
     }
 
-    header p {
+    .slogan {
       font-size: 1.2em;
-      margin-top: 10px;
       font-style: italic;
-      animation: fadeIn 2s ease-in-out;
+      margin-top: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid orange;
+      width: 0;
+      animation: typing 4s steps(50, end) forwards, blink .75s step-end infinite;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
     }
 
-    /* Hamburger Menu Button */
-    #menu-btn {
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .menu-button {
       position: absolute;
-      top: 25px;
-      right: 25px;
-      background: none;
-      border: none;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
       cursor: pointer;
-      z-index: 1100;
-    }
-
-    .bar {
-      width: 30px;
-      height: 3px;
-      background-color: white;
-      margin: 5px 0;
-    }
-
-    /* Side Menu */
-    #side-menu {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #005caa;
       color: white;
-      padding: 20px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-      transition: left 0.3s ease;
+    }
+
+    nav {
+      height: 100%;
+      width: 0;
+      position: fixed;
       z-index: 1000;
-      font-family: 'Roboto Slab', serif;
-    }
-
-    #side-menu.show {
+      top: 0;
       left: 0;
+      background-color: #1a1a1a;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
     }
 
-    #side-menu a {
+    nav a {
+      padding: 10px 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #333;
+    }
+
+    .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 36px;
       color: white;
       text-decoration: none;
-      display: block;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      font-size: 1.05em;
     }
 
     main {
@@ -102,119 +108,132 @@
     }
 
     footer {
-      background-color: #005caa;
+      background-color: #003366;
       color: white;
       text-align: center;
-      padding: 40px 20px;
+      padding: 30px 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9em;
+    }
+
+    .footer-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
     }
 
-    .footer-column {
-      flex: 1;
-      min-width: 200px;
+    .footer-section {
+      flex: 1 1 200px;
+      min-width: 150px;
     }
 
-    .footer-column h4 {
+    .footer-section h4 {
       text-decoration: underline;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
-    .footer-column p {
-      font-size: 0.9em;
-      margin: 5px 0;
+    .footer-section p {
+      margin: 2px 0;
+      font-size: 0.85em;
     }
 
-    .separator {
+    .footer-divider {
       width: 1px;
-      background-color: white;
-      height: auto;
+      background-color: #999;
+      height: 50px;
       margin: 0 10px;
     }
 
-    @media (max-width: 768px) {
-      footer {
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.8em;
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
         flex-direction: column;
         align-items: center;
       }
 
-      .separator {
+      .footer-divider {
         display: none;
       }
     }
   </style>
+
+  <script>
+    function openNav() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
 </head>
 
 <body>
   <header>
+    <span class="menu-button" onclick="openNav()">☰</span>
     <h1>THE OFFICE</h1>
-    <p>De l’encre aux pixels, nous façonnons vos idées.</p>
-    <button id="menu-btn">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
+    <p class="slogan">De l’encre aux pixels, nous façonnons vos idées.</p>
   </header>
 
   <!-- Menu latéral -->
-  <nav id="side-menu">
+  <nav id="sideMenu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <a href="index.html">Accueil</a>
-    <a href="#about">À propos de nous</a>
-    <a href="#choisir">Pourquoi nous choisir</a>
+    <a href="#a-propos">À propos de nous</a>
+    <a href="#pourquoi">Pourquoi nous choisir</a>
     <a href="#catalogue">Catalogue / Portfolio</a>
     <a href="contact.html">Contacts</a>
     <a href="#nouveautes">Nouveautés</a>
   </nav>
 
   <main>
-    <h2 id="about">Nos services</h2>
+    <h2 id="a-propos">Nos services</h2>
     <p>
-      Nous proposons des services d’impression, d’infographie (retouche d’image, carte de visite, etc.), 
+      Nous proposons des services d’impression, d’infographie (retouche d’image, carte de visite, etc.),
       des services cyber (inscription en ligne, loterie américaine, etc.), et la vente de consommables informatiques.
     </p>
 
-    <h2 id="choisir">Pourquoi nous choisir ?</h2>
+    <h2 id="pourquoi">Pourquoi nous choisir ?</h2>
     <p>
       Fiabilité, rapidité, qualité. THE OFFICE vous accompagne dans tous vos besoins numériques.
     </p>
   </main>
 
   <footer>
-    <div class="footer-column">
-      <h4>Localisation</h4>
-      <p>Douala PK17</p>
-      <p>Face Université</p>
-      <p>1ère porte à gauche du RDC</p>
-      <p>Bâtiment R+4</p>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h4>Localisation</h4>
+        <p>Douala_PK17</p>
+        <p>Face Université</p>
+        <p>1ère porte à gauche</p>
+        <p>RDC bâtiment R+4</p>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>(+237) 697 865 206</p>
+        <p>(+237) 653 318 226</p>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-section">
+        <h4>Horaires</h4>
+        <p>Lundi - Vendredi : 08h - 18h</p>
+        <p>Samedi : 08h - 18h</p>
+      </div>
     </div>
 
-    <div class="separator"></div>
-
-    <div class="footer-column">
-      <h4>Contact</h4>
-      <p>(+237) 697 865 206</p>
-      <p>(+237) 653 318 226</p>
-    </div>
-
-    <div class="separator"></div>
-
-    <div class="footer-column">
-      <h4>Horaires</h4>
-      <p>Lundi - Vendredi : 08h - 18h</p>
-      <p>Samedi : 08h - 18h</p>
-      <p>Dimanche : Fermé</p>
+    <div class="copyright">
+      &copy; 2025 THE OFFICE — Tous droits réservés.
     </div>
   </footer>
-
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const sideMenu = document.getElementById('side-menu');
-
-    menuBtn.addEventListener('click', () => {
-      sideMenu.classList.toggle('show');
-    });
-  </script>
 </body>
 </html>
