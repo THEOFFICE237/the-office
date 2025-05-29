@@ -8,7 +8,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@600&family=Great+Vibes&display=swap" rel="stylesheet" />
 
-  <!-- Style -->
   <style>
     body {
       margin: 0;
@@ -17,18 +16,82 @@
       background-color: #f4f4f4;
       color: #333;
     }
+
+    /* HEADER & MENU */
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .menu-btn {
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      background: none;
+      border: none;
+    }
+
+    /* SIDEBAR MENU */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      background-color: #1a1a1a;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      padding: 10px 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: white;
+      display: block;
+      transition: 0.3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .sidebar a:hover {
+      background-color: #333;
+    }
+
+    .closebtn {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 36px;
+      color: white;
+      cursor: pointer;
+    }
+
     .banner {
       position: relative;
       text-align: center;
       overflow: hidden;
-      height: 450px; /* hauteur augmentée */
+      height: 450px;
     }
+
     .banner img {
       width: 100%;
       height: 450px;
       object-fit: cover;
       display: block;
     }
+
     .slogan {
       position: absolute;
       top: 50%;
@@ -42,55 +105,88 @@
       animation: fadeIn 2s ease-in-out;
       font-family: 'Great Vibes', cursive;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-      max-width: 90%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translate(-50%, -60%); }
       to { opacity: 1; transform: translate(-50%, -50%); }
     }
-    header {
-      background-color: #1a1a1a;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      font-size: 2.5em;
-    }
+
     main {
       padding: 30px;
       max-width: 900px;
       margin: auto;
     }
+
     h2 {
       font-family: 'Montserrat', sans-serif;
       margin-top: 40px;
     }
+
+    /* FOOTER */
     footer {
-      background-color: #1a1a1a;
+      background-color: #005caa;
       color: white;
-      text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       margin-top: 50px;
-      font-size: 0.9em;
+      font-size: 0.95em;
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      text-align: left;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1em;
+    }
+
+    .footer-section p {
+      margin: 5px 0;
       line-height: 1.5em;
     }
-    footer .contact-info {
-      margin-top: 10px;
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.85em;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      color: #e0e0e0;
     }
   </style>
 </head>
+
 <body>
+  <!-- SIDEBAR MENU -->
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Accueil</a>
+    <a href="#">À propos de nous</a>
+    <a href="#">Pourquoi nous choisir</a>
+    <a href="#">Catalogue / Portfolio</a>
+    <a href="#">Contacts</a>
+    <a href="#">Nouveautés</a>
+  </div>
+
+  <!-- HEADER -->
   <header>
     <h1>THE OFFICE</h1>
-    <p>L’encre pour vos idées, les pixels pour vos projets.</p>
+    <button class="menu-btn" onclick="openNav()">&#9776;</button>
   </header>
 
+  <!-- BANNIÈRE -->
   <section class="banner">
     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Printing_press_1851_-_Gutenberg_Bible_-_Bodleian_Libraries%2C_University_of_Oxford_-_DSC07227.JPG" alt="Imprimerie" />
     <div class="slogan">L’encre pour vos idées, les pixels pour vos projets.</div>
@@ -110,11 +206,43 @@
   </main>
 
   <footer>
-    &copy; 2025 THE OFFICE — Tous droits réservés.
-    <div class="contact-info">
-      <strong>Localisation :</strong> Douala_PK17 face Université - 1ère porte à gauche du RDC bâtiment R+4<br />
-      <strong>Contact :</strong> (+237) 697 865 206 / (+237) 653 318 226
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>THE OFFICE</h3>
+        <p>Solutions numériques, impression, infographie, services cyber, et plus.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Adresse</h3>
+        <p>Douala PK17</p>
+        <p>Face Université</p>
+        <p>1ère porte à gauche du RDC - Bâtiment R+4</p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Téléphone : (+237) 697 865 206</p>
+        <p>WhatsApp : (+237) 653 318 226</p>
+        <p>Email : theoffice237@gmail.com</p>
+      </div>
+      <div class="footer-section">
+        <h3>Horaires</h3>
+        <p>Lundi - Samedi : 08h00 à 18h00</p>
+        <p>Dimanche : Fermé</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 THE OFFICE — Tous droits réservés.
     </div>
   </footer>
+
+  <!-- JS MENU -->
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+    }
+  </script>
 </body>
 </html>
