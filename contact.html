@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - THE OFFICE</title>
 
-  <!-- Fonts -->
+  <!-- Font Google -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icônes) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -25,7 +28,9 @@
     }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin: 10px;
       padding: 15px 25px;
       border-radius: 5px;
@@ -33,6 +38,11 @@
       color: white;
       font-size: 1.1em;
       transition: background-color 0.3s ease;
+      gap: 10px;
+    }
+
+    .btn i {
+      font-size: 1.4em;
     }
 
     .whatsapp {
@@ -57,11 +67,11 @@
   <h1>Nous contacter</h1>
 
   <a class="btn whatsapp" href="https://wa.me/237697865206" target="_blank">
-    Discuter sur WhatsApp
+    <i class="fab fa-whatsapp"></i> WhatsApp
   </a>
 
   <a class="btn facebook" href="https://facebook.com/THEOFFICE237" target="_blank">
-    Voir notre page Facebook
+    <i class="fab fa-facebook-f"></i> Facebook
   </a>
 
 </body>
